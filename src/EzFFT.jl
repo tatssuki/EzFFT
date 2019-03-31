@@ -37,7 +37,7 @@ function ezfft(ds::Array{Float64, 1}, ts::Float64; window=:rectangular)
     maxhz = 1/ts
     minhz = length(ds)/ts
 
-    res = abs.(fft(eval(Expr(:call, window, ds)))./ length(xxx) .*2.0)
+    res = abs.(fft(eval(Expr(:call, window, ds)))./ length(ds) .*2.0)
     return res[1:round(Int64, length(res)/2.0)]
 end
 
@@ -63,8 +63,8 @@ end # module
 
 
 # test code
-#using EzFFT
 #=
+using EzFFT
 
 ts = 1e-8
 tl = 0.0:ts:0.001-ts
