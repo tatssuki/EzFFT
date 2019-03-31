@@ -1,0 +1,10 @@
+name = "EzFFT"
+uuid = "67af87cd-677a-5a69-9ca5-019f6965393a"
+authors = ["tatssuki <tatsuki0824@hotmail.com>"]
+version = "0.1.0"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
