@@ -38,10 +38,12 @@ function ezfft(ds::Array{Float64, 1}, ts::Float64; window=:rectangular)
     minhz = length(ds)/ts
 
     res = abs.(fft(eval(Expr(:call, window, ds)))./ length(ds) .*2.0)
-    return res[1:round(Int64, length(res)/2.0)]
+    res = res[1:round(Int64, length(res)/2.0)]
+    popfirst!(res)
+    return res
 end
 
-function ezplot(ds::Array{Float64, 1}, ts::Float64; ylabel="dB", xlabel="MHz", fontsize=16)
+function ezplot(ds::Array{Float64, 1}, ts::Float64; ylabel="", xlabel="MHz", fontsize=16)
     if xlabel == "MHz"
         wxx = 1e6
     elseif xlabel == "kHz"
