@@ -62,21 +62,3 @@ function ezplot(ds::Array{Float64, 1}, ts::Float64; ylabel="", xlabel="MHz", fon
 end
 
 end # module
-
-
-# test code
-#=
-using EzFFT
-
-ts = 1e-8
-tl = 0.0:ts:0.001-ts
-f = 20*1e3
-xxx = Float64[]
-for t in tl
-    push!(xxx, sin(2pi*f*t))
-end
-
-res = 20*log10.(ezfft(xxx, ts))
-#res = 20*log10.(ezfft(xxx, ts))
-ezplot(res, ts, xlabel="MHz")
-=#
