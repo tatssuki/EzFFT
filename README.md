@@ -1,4 +1,4 @@
-# EzFFT
+# EzFFT.jl
 EzFFT is a wrapper package for FFTW.
 
 
